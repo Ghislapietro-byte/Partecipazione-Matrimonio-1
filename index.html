@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marta & Pietro</title>
+
+<style>
+
+html,body{
+margin:0;
+width:100%;
+height:100%;
+background:#000;
+font-family:Georgia,serif;
+overflow:hidden;
+}
+
+#intro{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#f7f3ec,#efe7db);
+z-index:2;
+}
+
+h1{
+font-size:54px;
+color:#8c6d46;
+margin-bottom:10px;
+}
+
+h2{
+font-weight:normal;
+color:#666;
+margin-bottom:40px;
+}
+
+button{
+background:#8c6d46;
+color:white;
+padding:18px 45px;
+border:none;
+border-radius:40px;
+font-size:22px;
+cursor:pointer;
+}
+
+video{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+object-fit:contain;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+
+<h1>Marta & Pietro</h1>
+
+<h2>25 Giugno 2027</h2>
+
+<button onclick="playVideo()">
+▶ Guarda il nostro video
+</button>
+
+</div>
+
+<video
+id="video"
+controls
+playsinline
+preload="auto">
+
+<source src="https://res.cloudinary.com/sddyugpi/video/upload/v1784277080/partecipazione_mzbewq.mp4" type="video/mp4">
+
+</video>
+
+<script>
+
+function playVideo(){
+
+document.getElementById("intro").style.display="none";
+
+const video=document.getElementById("video");
+
+video.style.display="block";
+
+video.play();
+
+if(video.requestFullscreen){
+video.requestFullscreen();
+}
+
+}
+
+</script>
+
+</body>
+</html>
