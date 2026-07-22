@@ -6,108 +6,49 @@
 <title>Marta & Pietro</title>
 
 <style>
-
-html,body{
-margin:0;
-width:100%;
-height:100%;
-background:#000;
-font-family:Georgia,serif;
-overflow:hidden;
-}
-
-#intro{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#f7f3ec,#efe7db);
-z-index:2;
-}
-
-h1{
-font-size:54px;
-color:#8c6d46;
-margin-bottom:10px;
-}
-
-h2{
-font-weight:normal;
-color:#666;
-margin-bottom:40px;
-}
-
-button{
-background:#8c6d46;
-color:white;
-padding:18px 45px;
-border:none;
-border-radius:40px;
-font-size:22px;
-cursor:pointer;
+html, body{
+    margin:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    overflow:hidden;
 }
 
 video{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#000;
-object-fit:contain;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#000;
 }
-
 </style>
 </head>
 
 <body>
 
-<div id="intro">
-
-<h1>Marta & Pietro</h1>
-
-<h2>25 Giugno 2027</h2>
-
-<button onclick="playVideo()">
-▶ Guarda il nostro video
-</button>
-
-</div>
-
 <video
-id="video"
-controls
-playsinline
-preload="auto">
-
-<source src="https://res.cloudinary.com/sddyugpi/video/upload/v1784277080/partecipazione_mzbewq.mp4" type="video/mp4">
-
+    controls
+    playsinline
+    preload="auto"
+    poster=""
+>
+    <source src="https://res.cloudinary.com/sddyugpi/video/upload/v1784731641/partecipazione_qltjnj.mp4" type="video/mp4">
+    Il tuo browser non supporta il video.
 </video>
 
 <script>
+const video = document.querySelector("video");
 
-function playVideo(){
+// Avvia il video quando possibile
+video.play().catch(() => {
+  // Su molti telefoni il browser richiede un tocco dell'utente
+});
 
-document.getElementById("intro").style.display="none";
-
-const video=document.getElementById("video");
-
-video.style.display="block";
-
-video.play();
-
-if(video.requestFullscreen){
-video.requestFullscreen();
-}
-
-}
-
+// Se l'utente tocca lo schermo, il video parte
+document.body.addEventListener("click", () => {
+  video.play();
+}, { once: true });
 </script>
 
 </body>
