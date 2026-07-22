@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marta & Pietro</title>
+
+<style>
+html, body{
+    margin:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    overflow:hidden;
+}
+
+video{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#000;
+}
+</style>
+</head>
+
+<body>
+
+<video
+    controls
+    playsinline
+    preload="auto"
+    poster=""
+>
+    <source src="https://res.cloudinary.com/sddyugpi/video/upload/v1784731641/partecipazione_qltjnj.mp4" type="video/mp4">
+    Il tuo browser non supporta il video.
+</video>
+
+<script>
+const video = document.querySelector("video");
+
+// Avvia il video quando possibile
+video.play().catch(() => {
+  // Su molti telefoni il browser richiede un tocco dell'utente
+});
+
+// Se l'utente tocca lo schermo, il video parte
+document.body.addEventListener("click", () => {
+  video.play();
+}, { once: true });
+</script>
+
+</body>
+</html>
