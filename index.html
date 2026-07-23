@@ -56,17 +56,6 @@ object-fit:contain;
 background:#000;
 }
 
-button{
-margin-top:55vh;
-padding:18px 45px;
-font-size:22px;
-border:none;
-border-radius:50px;
-background:#56644e;
-color:white;
-cursor:pointer;
-}
-
 #testoFinale{
 opacity:0;
 transition:2s;
@@ -92,12 +81,7 @@ letter-spacing:2px;
 
 <body>
 
-<div id="intro">
-
-<button onclick="avviaVideo()">
-Guarda la nostra partecipazione
-</button>
-
+<div id="intro" onclick="avviaVideo()" style="cursor:pointer;">
 </div>
 
 <video id="video" playsinline controls>
