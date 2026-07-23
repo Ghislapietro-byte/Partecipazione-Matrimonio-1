@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Marta & Pietro</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+font-family:Georgia,serif;
+background:#000;
+}
+
+#intro,#finale{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+#intro{
+background-image:url("intro.jpg");
+}
+
+#finale{
+background-image:url("finale.jpg");
+display:none;
+}
+
+video{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:contain;
+background:#000;
+}
+
+button{
+margin-top:55vh;
+padding:18px 45px;
+font-size:22px;
+border:none;
+border-radius:50px;
+background:#56644e;
+color:white;
+cursor:pointer;
+}
+
+#testoFinale{
+opacity:0;
+transition:2s;
+text-align:center;
+color:white;
+text-shadow:0 0 20px rgba(0,0,0,.8);
+}
+
+#testoFinale h1{
+font-size:52px;
+letter-spacing:3px;
+margin-bottom:15px;
+}
+
+#testoFinale h2{
+font-size:28px;
+font-weight:300;
+letter-spacing:2px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+
+<button onclick="avviaVideo()">
+Guarda la nostra partecipazione
+</button>
+
+</div>
+
+<video id="video" playsinline controls>
+
+<source src="https://res.cloudinary.com/sddyugpi/video/upload/v1784731641/partecipazione_qltjnj.mp4" type="video/mp4">
+
+</video>
+
+<div id="finale">
+
+<div id="testoFinale">
+
+<h1>25 GIUGNO 2027</h1>
+
+<h2>RIFUGIO SALEI - PASSO SELLA</h2>
+
+</div>
+
+</div>
+
+<script>
+
+const video=document.getElementById("video");
+
+function avviaVideo(){
+
+document.getElementById("intro").style.display="none";
+
+video.style.display="block";
+
+video.play();
+
+}
+
+video.onended=function(){
+
+video.style.display="none";
+
+document.getElementById("finale").style.display="flex";
+
+// aspetta 2 secondi prima di mostrare la scritta
+setTimeout(function(){
+
+document.getElementById("testoFinale").style.opacity="1";
+
+},2000);
+
+}
+
+</script>
+
+</body>
+</html>
